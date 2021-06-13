@@ -1058,6 +1058,7 @@ MonoBehaviour:
   - Visibility Switcher
   - Animation
   - Material Color
+  - Switch Scene
   selectedOptionIndex: 1
   targetObject: {fileID: 0}
   targetAnimation: {fileID: 1826946843}
