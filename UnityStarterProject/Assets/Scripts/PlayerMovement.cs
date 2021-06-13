@@ -13,27 +13,16 @@ public class PlayerMovement : MonoBehaviour
     public int movementSpeed = 5;
     public int speedMultiplier = 6;
     public float camSensitivity = 0.25f;
-
     private Vector3 unClickedRotation;
     private Vector3 lastMouse = new Vector3(255, 255, 255); //kind of in the middle of the screen, rather than at the top (play)
-
-
 
 
     //CHARACTER VARIABLES
     public float gravity = -9.8f;
     public float characterRadius = 0.5f;
-
-
     private CharacterController characterController;
     private Vector3 velocity;
     private bool isGrounded;
-
-
-    
-
-
-
 
 
     private void Start()
@@ -193,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
 #if UNITY_EDITOR
 
 [CustomEditor(typeof(PlayerMovement))]
-public class MyScriptEditor : Editor
+public class PlayerMovementEditor : Editor
 {
     override public void OnInspectorGUI()
     {
