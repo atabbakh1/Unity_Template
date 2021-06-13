@@ -2,6 +2,8 @@
 
 ## Using 2020.3.11f1 LTS
 
+## Demo: https://mygame.page/unitywebgldemo
+
 This project sample was created for the Summer 2021 students in Robert Brackett III design studio at Pratt Institute's School of Architecture. The project requires no coding knowledge and is a great starting point for beginner level Unity users.
 
 ![Screenshot](/Documentation/Interface.JPG)
