@@ -318,7 +318,7 @@ MonoBehaviour:
   - Flythrough
   selectedOptionIndex: 0
   movementSpeed: 5
-  speedMultiplier: 3
+  speedMultiplier: 6
   camSensitivity: 0.25
   gravity: -9.8
   characterRadius: 0.5
@@ -522,6 +522,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 260f70ee4b6445a4d89a4259873c988e, type: 3}
   m_PrefabInstance: {fileID: 1628019397}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1628019399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 951011102456138778, guid: 260f70ee4b6445a4d89a4259873c988e, type: 3}
+  m_PrefabInstance: {fileID: 1628019397}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1628019400
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628019399}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9032557090061056480, guid: 260f70ee4b6445a4d89a4259873c988e, type: 3}
 --- !u!1 &1681035084
 GameObject:
   m_ObjectHideFlags: 0
