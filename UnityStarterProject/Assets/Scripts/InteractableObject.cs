@@ -110,7 +110,6 @@ public class InteractableObjectEditor : Editor
             default:
                 break;
 
-
         }
 
 

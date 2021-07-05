@@ -322,6 +322,7 @@ MonoBehaviour:
   camSensitivity: 0.25
   gravity: -9.8
   characterRadius: 0.5
+  alignToMesh: 1
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0

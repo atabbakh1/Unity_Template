@@ -20,11 +20,16 @@ public class PlayerMovement : MonoBehaviour
     //CHARACTER VARIABLES
     public float gravity = -9.8f;
     public float characterRadius = 0.5f;
+    public float characterHeight = 2.0f;
+    public float jumpHeight = 1.0f;
+    public bool alignToMesh = false;
+
+
     private CharacterController characterController;
     private Vector3 velocity;
     private bool isGrounded;
 
-
+    
     private void Start()
     {
 
@@ -38,9 +43,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 characterController = gameObject.GetComponent<CharacterController>();
             }
-
         }
-
         unClickedRotation = transform.eulerAngles;
     }
     void Update()
@@ -78,23 +81,49 @@ public class PlayerMovement : MonoBehaviour
 
                 characterRadius = Mathf.Clamp(characterRadius, 0.02f, 1f);
                 characterController.radius = characterRadius;
-                isGrounded = Physics.CheckSphere(characterController.transform.position, characterRadius);
+                characterController.height = characterHeight;
+
+                isGrounded = characterController.isGrounded;
 
                 if (isGrounded && velocity.y < 0)
                 {
-                    velocity.y = -2f;
+                    velocity.y = 0f;
                 }
 
                 float x = Input.GetAxis("Horizontal");
                 float z = Input.GetAxis("Vertical");
                 Vector3 moveDirection = transform.right * x + transform.forward * z;
 
-                characterController.Move(moveDirection * movementSpeed * Time.deltaTime);
 
+                //accerlerate if LeftShift is pressed
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     characterController.Move(moveDirection * movementSpeed * speedMultiplier * Time.deltaTime);
                 }
+                else
+                {
+                    characterController.Move(moveDirection * movementSpeed * Time.deltaTime);
+                }
+
+                // changes the height position of the player..
+                if (Input.GetButtonDown("Jump") && isGrounded)
+                {
+                    velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
+                }
+
+                //aligns the Y axis of the player as it moves to the normal of the mesh
+                if (alignToMesh)
+                {
+                    RaycastHit hit;
+                    Ray downRay = new Ray(transform.position, -Vector3.up);
+
+                    if (Physics.Raycast(downRay, out hit))
+                    {
+                        transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+                    }
+                }
+
+                //bring down the velocity to the ground 
                 velocity.y += gravity * Time.deltaTime;
                 characterController.Move(velocity * Time.deltaTime);
 
@@ -199,6 +228,8 @@ public class PlayerMovementEditor : Editor
         {
             myScript.gravity = EditorGUILayout.FloatField("Gravity", myScript.gravity);
             myScript.characterRadius = EditorGUILayout.FloatField("Character Radius", myScript.characterRadius);
+            myScript.characterHeight = EditorGUILayout.FloatField("Character Height", myScript.characterHeight);
+            myScript.alignToMesh = GUILayout.Toggle(myScript.alignToMesh, "Align To Mesh");
         }
     }
 }
