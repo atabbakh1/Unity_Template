@@ -43,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 characterController = gameObject.GetComponent<CharacterController>();
             }
+
         }
         unClickedRotation = transform.eulerAngles;
     }

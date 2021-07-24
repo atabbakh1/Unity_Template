@@ -657,6 +657,9 @@ MonoBehaviour:
   camSensitivity: 0.25
   gravity: -9.8
   characterRadius: 0.5
+  characterHeight: 2
+  jumpHeight: 1
+  alignToMesh: 0
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,7 +815,7 @@ MonoBehaviour:
   hoverHeight: 4
   distanceThreshold: 5
   followSpeed: 3.5
-  targetObject: {fileID: 798540057}
+  targetObject: {fileID: 963194228}
   highlightMaterial: {fileID: 2100000, guid: 955193d54467f9645ba386dbb9e34198, type: 2}
 --- !u!54 &1328985847
 Rigidbody:
@@ -1119,7 +1122,7 @@ MonoBehaviour:
   hoverHeight: 4
   distanceThreshold: 5
   followSpeed: 3.5
-  targetObject: {fileID: 798540057}
+  targetObject: {fileID: 963194228}
   highlightMaterial: {fileID: 2100000, guid: 955193d54467f9645ba386dbb9e34198, type: 2}
 --- !u!54 &1880446684
 Rigidbody:
