@@ -7,9 +7,15 @@ public class TriggerSceneTransition : MonoBehaviour
 {
 
     public string sceneToLoad;
+    private GameObject tempTargetObject;
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(sceneToLoad);
+        tempTargetObject = other.gameObject;
+
+        if (!tempTargetObject.CompareTag("Ground"))
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
     }
 }
